@@ -1,0 +1,35 @@
+class Student:
+    def __init__(self,name,id):
+        self.name=name
+        self.id=id
+
+    def display(self):
+        print("Name: ",self.name)
+        print("ID: ",self.id)
+
+class Marks(Student):
+    def __init__(self,algo,ds,cal,ide,name):
+        Student.__init__(self,ide,name)
+        self.algo=algo
+        self.ds=ds
+        self.cal=cal
+
+    def display(self):
+        Student.display(self)
+        print("Algo: ",self.algo)
+        print("Data Science: ",self.ds)
+        print("Calculus: ", self.cal)
+
+class Result(Marks):
+    def __init__(self,algo,ds,cal,ide,name,total,avg):
+        Marks.__init__(self,algo,ds,cal,ide,name)
+        self.total=algo+ds+cal
+        self.avg=self.total/3
+    def display(self):
+        Marks.display(self)
+        print("Total: ",self.total)
+        print("Average: ",self.avg)
+
+
+r=Result(70,70,70,1234,"Yasir",0,0)
+r.display()
