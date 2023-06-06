@@ -1,0 +1,13 @@
+import pandas as pd
+df1 = pd.read_csv("data1.csv", index_col=0)
+df2 = pd.read_csv("data2.csv", index_col=1)
+df3 = pd.concat([df1,df2])
+df4 = pd.read_csv("data3.csv", index_col=0)
+df5 = pd.concat([df3, df4], axis=1)
+df6 = pd.read_json("data.json")
+df7 = pd.concat([df5,df6])
+df7 = df7.replace('Hello',None)
+df7=df7.reset_index(drop=True)
+df7=df7.fillna(df7.mean())
+print(df7)
+df7.to_csv("newdata.csv")
